@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".Onboarding1Activity">
 
     <ImageView
@@ -21,7 +22,6 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -40,8 +40,8 @@
             android:layout_marginTop="10dp"
             android:text="Create tasks and keep being updated"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textColor="#09A2AB"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -50,19 +50,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="This task manager allows you to make tasks and projects and help you to manage them"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColor="#09A2AB"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-
-            android:text="next"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/blue_btn"
+            android:text="Next"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:backgroundTint="#09A2AB"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
