@@ -16,7 +16,7 @@
             android:orientation="vertical"
             android:background="@drawable/blue_border">
             <TextView
-                android:id="@+id/editTaskHeading"
+                android:id="@+id/TaskHeading"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@color/blue"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteDesc"
+                android:id="@+id/taskDes"
                 android:layout_marginTop="8dp"
                 android:maxHeight="170dp"
                 android:text="@string/description"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/taskDate"
+                android:id="@+id/taskDeadline"
                 android:layout_marginTop="8dp"
                 android:maxHeight="170dp"
                 android:text="@string/deadline"

@@ -16,7 +16,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/editTaskHeading"
+                android:id="@+id/addTaskHeading"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@color/blue"
@@ -28,7 +28,7 @@
                 android:paddingTop="10dp"/>
 
             <EditText
-                android:id="@+id/editTaskTitle"
+                android:id="@+id/addTaskTitle"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="@string/enter_task_name"
@@ -40,7 +40,7 @@
                 android:layout_margin="10dp"/>
 
             <EditText
-                android:id="@+id/editNoteDesc"
+                android:id="@+id/addNoteDesc"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:hint="@string/enter_the_description"
@@ -53,13 +53,13 @@
 
             <!-- Spinner for Priority -->
             <Spinner
-                android:id="@+id/spinnerPriority"
+                android:id="@+id/addspinnerPriority"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_margin="10dp"/>
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/adddate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

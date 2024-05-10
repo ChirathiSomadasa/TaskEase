@@ -13,6 +13,6 @@ data class Task(
     val id:Int,
     val taskName: String,
     val taskDes: String,
-    val priority:String,
-    val deadline:String
+    val taskPriority:String,
+    val taskDeadline:String
 ):Parcelable
