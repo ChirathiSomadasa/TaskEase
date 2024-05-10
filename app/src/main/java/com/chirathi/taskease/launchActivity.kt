@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 
-class MainActivity : AppCompatActivity() {
+class launchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_launch)
 
-
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, Onboarding1Activity::class.java)
+            startActivity(intent)
+        }, 1000)
     }
 }

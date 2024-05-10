@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/blue_border">
+            <TextView
+                android:id="@+id/editTaskHeading"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#09A2AB"
+                android:text="Tasks"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/taskName"
+                android:layout_weight="200"
+                android:textColor="#09A2AB"
+                android:text="Task Name"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:padding="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/noteDesc"
+                android:layout_marginTop="8dp"
+                android:maxHeight="170dp"
+                android:text="Description"
+                android:textSize="14sp"
+                android:textColor="#09A2AB"
+                android:padding="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/taskPriority"
+                android:layout_marginTop="8dp"
+                android:maxHeight="170dp"
+                android:text="Priority"
+                android:textSize="14sp"
+                android:textColor="#09A2AB"
+                android:padding="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/taskDate"
+                android:layout_marginTop="8dp"
+                android:maxHeight="170dp"
+                android:text="Daedline"
+                android:textSize="14sp"
+                android:textColor="#09A2AB"
+                android:padding="16dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
