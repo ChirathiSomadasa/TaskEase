@@ -38,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Create tasks and keep being updated"
+            android:text="@string/onboarding_screen_heading"
             android:textAlignment="center"
-            android:textColor="#09A2AB"
+            android:textColor="@color/blue"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -49,8 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="This task manager allows you to make tasks and projects and help you to manage them"
-            android:textColor="#09A2AB"
+            android:text="@string/onboarding_screen_description"
+            android:textColor="@color/blue"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -60,12 +60,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             android:background="@drawable/blue_btn"
-            android:text="Next"
+            android:text="@string/next"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="20sp"
-            app:backgroundTint="#09A2AB"/>
+            app:backgroundTint="@color/blue"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

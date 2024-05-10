@@ -19,8 +19,8 @@
                 android:id="@+id/editTaskHeading"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#09A2AB"
-                android:text="Tasks"
+                android:background="@color/blue"
+                android:text="@string/tasks"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -33,7 +33,7 @@
                 android:id="@+id/taskName"
                 android:layout_weight="200"
                 android:textColor="#09A2AB"
-                android:text="Task Name"
+                android:text="@string/task_name"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:padding="16dp"/>
@@ -44,7 +44,7 @@
                 android:id="@+id/noteDesc"
                 android:layout_marginTop="8dp"
                 android:maxHeight="170dp"
-                android:text="Description"
+                android:text="@string/description"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
                 android:padding="16dp"/>
@@ -55,7 +55,7 @@
                 android:id="@+id/taskPriority"
                 android:layout_marginTop="8dp"
                 android:maxHeight="170dp"
-                android:text="Priority"
+                android:text="@string/priority"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
                 android:padding="16dp"/>
@@ -65,7 +65,7 @@
                 android:id="@+id/taskDate"
                 android:layout_marginTop="8dp"
                 android:maxHeight="170dp"
-                android:text="Daedline"
+                android:text="@string/deadline"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
                 android:padding="16dp"/>
