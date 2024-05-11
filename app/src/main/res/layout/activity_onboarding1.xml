@@ -22,26 +22,24 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.198">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/topic1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/onboarding_screen_heading"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -49,22 +47,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/onboarding_screen_description"
-            android:textColor="@color/blue"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textColor="@color/blue"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@drawable/blue_btn"
             android:text="@string/next"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:textSize="20sp"
-            app:backgroundTint="@color/blue"/>
+            app:backgroundTint="@color/blue" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

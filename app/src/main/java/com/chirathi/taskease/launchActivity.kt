@@ -14,6 +14,7 @@ class launchActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, Onboarding1Activity::class.java)
             startActivity(intent)
+            finish()
         }, 1000)
     }
 }

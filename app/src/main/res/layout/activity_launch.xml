@@ -13,6 +13,6 @@
         android:layout_width="185dp"
         android:layout_height="185dp"
         android:layout_centerInParent="true"
-        app:srcCompat="@drawable/logo"/>
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>

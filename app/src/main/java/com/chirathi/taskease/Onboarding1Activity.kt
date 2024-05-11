@@ -14,6 +14,7 @@ class Onboarding1Activity : AppCompatActivity() {
         next.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

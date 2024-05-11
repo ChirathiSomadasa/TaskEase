@@ -1,16 +1,18 @@
 package com.chirathi.taskease.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -22,7 +24,10 @@ import com.chirathi.taskease.model.Task
 import com.chirathi.taskease.viewmodel.TaskViewModel
 
 
-class HomeFragment: Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
+
+
+class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener,
+    MenuProvider {
 
     private var homeBinding: FragmentHomeBinding? = null
     private val binding get() = homeBinding!!
@@ -58,35 +63,73 @@ class HomeFragment: Fragment(R.layout.fragment_home), SearchView.OnQueryTextList
             if (task.isNotEmpty()) {
                 binding.emptyTasksImage.visibility = View.GONE
                 binding.homeRecyclerView.visibility = View.VISIBLE
+                binding.layoutFilter.visibility = View.VISIBLE
             } else {
                 binding.emptyTasksImage.visibility = View.VISIBLE
                 binding.homeRecyclerView.visibility = View.GONE
+                binding.layoutFilter.visibility = View.GONE
             }
         }
     }
 
     private fun setupHomeRecyclerView() {
-
         taskAdapter = TaskAdapter()
         binding.homeRecyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             adapter = taskAdapter
         }
+        showAllTask()
 
-        activity?.let {
-            tasksViewModel.getAllNotes().observe(viewLifecycleOwner) { tasks ->
-                taskAdapter.differ.submitList(tasks)
-                updateUI(tasks)
+        val priorityOptions = listOf("All", "High", "Medium", "Low")
+        val priorityAdapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, priorityOptions)
+        binding.spinnerPriority.adapter = priorityAdapter
+        binding.spinnerPriority.setOnItemSelectedListener(object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View?,
+                position: Int,
+                id: Long
+            ) {
+                filterTask()
             }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // your code here
+            }
+        })
+    }
+
+    private fun showAllTask() {
+        tasksViewModel.getAllNotes().observe(viewLifecycleOwner) { tasks ->
+            taskAdapter.differ.submitList(tasks)
+            updateUI(tasks)
         }
     }
 
     private fun searchTask(query: String?) {
-        val searchQuery = "%$query"
+        val searchQuery = "%$query%"
 
         tasksViewModel.searchTask(searchQuery).observe(viewLifecycleOwner) { list ->
             taskAdapter.differ.submitList(list)
+        }
+    }
+
+    private fun filterTask() {
+        val taskPriority = when (binding.spinnerPriority.selectedItem.toString()) {
+            "High" -> Task.Priority.HIGH
+            "Medium" -> Task.Priority.MEDIUM
+            "Low" -> Task.Priority.LOW
+            else -> null
+        }
+        if (taskPriority != null) {
+            tasksViewModel.filterTask(taskPriority).observe(viewLifecycleOwner) { list ->
+                taskAdapter.differ.submitList(list)
+            }
+        } else {
+            showAllTask()
         }
     }
 
