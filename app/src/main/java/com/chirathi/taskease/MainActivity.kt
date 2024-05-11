@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupViewModel()
     }
 
     private fun setupViewModel(){
@@ -24,4 +25,6 @@ class MainActivity : AppCompatActivity() {
         val viewModelProviderFactory = TaskViewModelFactory(application,taskRepository)
         taskViewModel = ViewModelProvider(this,viewModelProviderFactory)[TaskViewModel::class.java]
     }
+
+
 }

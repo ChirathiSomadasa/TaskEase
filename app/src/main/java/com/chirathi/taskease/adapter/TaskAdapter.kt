@@ -10,7 +10,7 @@ import com.chirathi.taskease.databinding.TaskLayoutBinding
 import com.chirathi.taskease.fragments.HomeFragmentDirections
 import com.chirathi.taskease.model.Task
 
-class TaskAdapater : RecyclerView.Adapter<TaskAdapater.TaskViewHolder>() {
+class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(val itemBinding: TaskLayoutBinding): RecyclerView.ViewHolder(itemBinding.root)
 
@@ -18,9 +18,9 @@ class TaskAdapater : RecyclerView.Adapter<TaskAdapater.TaskViewHolder>() {
         override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
             return oldItem.id == newItem.id &&
                     oldItem.taskDes == newItem.taskDes &&
-                    oldItem.taskName == newItem.taskName &&
-                    oldItem.taskPriority == newItem.taskPriority &&
-                    oldItem.taskDeadline == newItem.taskDeadline
+                    oldItem.taskName == newItem.taskName
+                   /* oldItem.taskPriority == newItem.taskPriority &&
+                    oldItem.taskDeadline == newItem.taskDeadline*/
         }
 
         override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
@@ -43,11 +43,11 @@ class TaskAdapater : RecyclerView.Adapter<TaskAdapater.TaskViewHolder>() {
 
         holder.itemBinding.taskName.text = currentTask.taskName
         holder.itemBinding.taskDes.text = currentTask.taskDes
-        holder.itemBinding.taskPriority.text = currentTask.taskPriority
-        holder.itemBinding.taskDeadline.text = currentTask.taskDeadline
+       /* holder.itemBinding.taskPriority.text = currentTask.taskPriority
+        holder.itemBinding.taskDeadline.text = currentTask.taskDeadline*/
 
         holder.itemView.setOnClickListener{
-            val direction = HomeFragmentDirections.actionHomeFragmentToEditTaskFragment()
+            val direction = HomeFragmentDirections.actionHomeFragmentToEditTaskFragment(currentTask)
             it.findNavController().navigate(direction)
         }
 

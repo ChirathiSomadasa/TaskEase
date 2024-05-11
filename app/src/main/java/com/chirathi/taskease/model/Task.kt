@@ -12,7 +12,7 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     val id:Int,
     val taskName: String,
-    val taskDes: String,
-    val taskPriority:String,
-    val taskDeadline:String
+    val taskDes: String
+   /* val taskPriority:String,
+    val taskDeadline:String*/
 ):Parcelable

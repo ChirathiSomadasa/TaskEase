@@ -3,58 +3,86 @@ package com.chirathi.taskease.fragments
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.findNavController
+import com.chirathi.taskease.MainActivity
 import com.chirathi.taskease.R
+import com.chirathi.taskease.databinding.FragmentAddTaskBinding
+import com.chirathi.taskease.viewmodel.TaskViewModel
+import com.chirathi.taskease.model.Task
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddTaskFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AddTaskFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var addTaskBinding: FragmentAddTaskBinding? = null
+    private val binding get() = addTaskBinding!!
 
+    private lateinit var tasksViewModel: TaskViewModel
+    private lateinit var addTaskView: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_task, container, false)
+        addTaskBinding = FragmentAddTaskBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddTaskFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AddTaskFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        tasksViewModel = (activity as MainActivity).taskViewModel
+        addTaskView = view
     }
+
+    private fun saveTask(view: View){
+
+        val taskName = binding.addTaskTitle.text.toString().trim()
+        val taskDes= binding.addTaskDesc.text.toString().trim()
+        /* val taskPriority = binding.addSpinnerPriority.text.toString().trim()
+         val taskDeadline = binding.addcalendarView.text.toString().trim()*/
+
+        if(taskName.isNotEmpty()){
+            val task = Task(0,taskName,taskDes)
+            tasksViewModel.addTask(task)
+
+            Toast.makeText(addTaskView.context,"Not Saved",Toast.LENGTH_SHORT).show()
+            view.findNavController().popBackStack(R.id.homeFragment,false)
+
+        }else{
+            Toast.makeText(addTaskView.context,"Please enter task name",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menu.clear()
+        menuInflater.inflate(R.menu.menu_add_task,menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+       return when(menuItem.itemId){
+           R.id.searchMenu -> {
+               saveTask(addTaskView)
+               true
+           }
+           else -> false
+       }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        addTaskBinding = null
+    }
+
 }

@@ -9,22 +9,8 @@
         android:layout_height="match_parent"
         tools:context=".HomeFragment">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/blue"
-                android:text="@string/appName"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingTop="12dp"
-                tools:ignore="MissingConstraints" />
-
-
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addNoteFab"
+            android:id="@+id/addTaskFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -49,7 +35,7 @@
 
 
         <ImageView
-            android:id="@+id/emptyNotesImage"
+            android:id="@+id/emptyTasksImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"

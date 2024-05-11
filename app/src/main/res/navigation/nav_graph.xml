@@ -31,9 +31,9 @@
             android:id="@+id/action_editTaskFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
 
-        <action
+        <argument
             android:name="task"
-            app:argType = "import com.chirathi.taskease.model.Task"
+            app:argType = "com.chirathi.taskease.model.Task"
             app:nullable = "true"/>
     </fragment>
 </navigation>

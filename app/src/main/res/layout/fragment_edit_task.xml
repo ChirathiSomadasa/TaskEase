@@ -8,24 +8,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".EditTaskFragment">
+        tools:context=".EditTaskFragment"
+        android:layout_margin="12dp">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical">-->
 
-            <TextView
-                android:id="@+id/editTaskHeading"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/blue"
-                android:text="@string/edit_task"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingTop="10dp"/>
+           <TextView
+               android:id="@+id/editTaskHeading"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/edit_task"
+               android:textAlignment="center"
+               android:textColor="@color/blue"
+               android:textSize="24sp"
+               android:textStyle="bold"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="16dp"/>
+
 
             <EditText
                 android:id="@+id/editTaskTitle"
@@ -37,22 +39,21 @@
                 android:layout_below="@id/editTaskHeading"
                 android:background="@drawable/blue_border"
                 android:maxLines="1"
-                android:layout_margin="10dp"/>
+                android:layout_marginTop="16dp"/>
 
             <EditText
-                android:id="@+id/editNoteDesc"
+                android:id="@+id/editTaskDesc"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:hint="@string/enter_the_description"
-                android:gravity="top"
                 android:padding="10dp"
                 android:textSize="18sp"
                 android:background="@drawable/blue_border"
                 android:layout_below="@id/editTaskTitle"
-                android:layout_margin="10dp" />
+                android:layout_marginTop="12dp"/>
 
             <!-- Spinner for Priority -->
-            <Spinner
+        <!--    <Spinner
                 android:id="@+id/editspinnerPriority"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,8 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+                android:layout_gravity="center"/>-->
+       <!-- </LinearLayout>-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/editTaskFab"
