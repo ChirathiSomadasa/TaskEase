@@ -72,7 +72,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
        return when(menuItem.itemId){
-           R.id.searchMenu -> {
+           R.id.saveMenu -> {
                saveTask(addTaskView)
                true
            }

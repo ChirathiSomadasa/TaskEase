@@ -36,7 +36,7 @@
                 android:text="@string/task_name"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:padding="16dp"/>
+                android:padding="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,9 +47,9 @@
                 android:text="@string/description"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
-                android:padding="16dp"/>
+                android:padding="10dp"/>
 
-            <TextView
+          <!--  <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/taskPriority"
@@ -58,7 +58,7 @@
                 android:text="@string/priority"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
-                android:padding="16dp"/>
+                android:padding="10dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:text="@string/deadline"
                 android:textSize="14sp"
                 android:textColor="#09A2AB"
-                android:padding="16dp"/>
+                android:padding="10dp"/>-->
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
